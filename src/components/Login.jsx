@@ -9,6 +9,7 @@ const Login = () => {
   const navigate = useNavigate()
   const [emailId, setEmailId] = useState("dhoni@gmail.com");
   const [password, setPassword] = useState("Dhoni@21");
+  const [error, setError] = useState("");
   const handleLogin = async () => {
     try {
       const res = await axios.post(BASEURL+"/login", {
@@ -17,11 +18,12 @@ const Login = () => {
       },{
         withCredentials:true
       });
-      console.log("res",res.data)
+      console.error("res",res)
 dispatch(addUser(res.data))
  navigate('/')
     } catch (err) {
-      console.log("Error", err.message);
+      setError(err?.response?.data || "Something went wrong")
+      console.error("Error", err.response);
     }
   };
   return (
@@ -49,6 +51,7 @@ dispatch(addUser(res.data))
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
