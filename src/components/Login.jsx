@@ -44,7 +44,7 @@ dispatch(addUser(res.data))
           <fieldset className="fieldset">
             <legend className="fieldset-legend">Password</legend>
             <input
-              type="password"
+              type="text"
               className="input"
               placeholder="Enter your Password"
               value={password}
