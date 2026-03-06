@@ -7,8 +7,9 @@ const requestSlice = createSlice({
         addRequestConnections:(state,action)=>{
             return action.payload
         },
-        removeRequestConnections:(state,paylaod)=>{
-            return null
+        removeRequestConnections:(state,action)=>{
+            const newArray = state.filter(r=>r._id !==action.payload)
+            return newArray
         }
 
     }
