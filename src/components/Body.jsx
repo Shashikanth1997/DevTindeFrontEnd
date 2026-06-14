@@ -19,12 +19,8 @@ const Body = () => {
       console.log("res...", res.data);
       dispatch(addUser(res.data));
     } catch (err) {
-        console.log("err.status",err.status)
-      if (err.status == 401) {
-        navigate("/login");
-      }
-
       console.error(err);
+      navigate("/login");
     }
   };
   useEffect(() => {

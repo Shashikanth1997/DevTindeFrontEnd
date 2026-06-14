@@ -22,8 +22,8 @@ const Login = () => {
 dispatch(addUser(res.data))
  navigate('/')
     } catch (err) {
-      setError(err?.response?.data || "Something went wrong")
-      console.error("Error", err.response);
+      setError(err?.response?.data || (err.request ? "Cannot reach server. Is the backend running?" : "Something went wrong"))
+      console.error("Error", err);
     }
   };
   return (

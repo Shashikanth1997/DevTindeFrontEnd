@@ -15,7 +15,7 @@ const Feed = () => {
       console.log("res in feed", res.data);
       dispatch(addFeed(res.data));
     } catch (err) {
-      setError(err.response.data || "something went wrong");
+      setError(err.response?.data || "something went wrong");
     }
   };
   useEffect(() => {
